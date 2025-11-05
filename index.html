@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSP Training Academy - Empowering Communities Since 2016</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --yellow: #FFC107;
+            --navy: #002B5B;
+            --red: #DC3545;
+            --light-gray: #F8F9FA;
+            --dark-gray: #343A40;
+            --white: #FFFFFF;
+            --black: #000000;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            /** background-color: var(--yellow); **/
+            padding: 0.75rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--black);
+        }
+
+        .logo-text h1 {
+            color: var(--black);
+            margin: 0;
+        }
+
+        .logo-text p {
+            font-size: 0.875rem;
+            color: var(--dark-gray);
+            margin: 0;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: var(--navy);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--navy);
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: none;
+            padding: 1rem 0;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #E8F0F8 0%, #D6E8F5 100%);
+            padding: 5rem 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            text-align: left;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--dark-gray);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--navy);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #003d7a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 43, 91, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--yellow);
+            color: var(--black);
+        }
+
+        .btn-secondary:hover {
+            background-color: #FFB300;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 4px;
+            background-color: var(--yellow);
+            margin: 1rem auto 2rem;
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--light-gray);
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-card-icon {
+            width: 64px;
+            height: 64px;
+            background-color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .about-card-icon i {
+            font-size: 2rem;
+            color: var(--yellow);
+        }
+
+        /* Courses Section */
+        .courses {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #F8F9FA 0%, #E8F0F8 100%);
+        }
+
+        .course-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .course-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .course-card-content {
+            padding: 1.5rem;
+        }
+
+        .course-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .course-card p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+        }
+
+        .additional-courses {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .additional-courses h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .course-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .course-list-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .course-list-item i {
+            color: var(--yellow);
+            font-size: 0.75rem;
+        }
+
+        .courses-cta {
+            text-align: center;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon i {
+            font-size: 1.25rem;
+            color: var(--navy);
+        }
+
+        .contact-info-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-map {
+            width: 100%;
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .contact-form {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .contact-form h3 {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-form h3 i {
+            color: var(--red);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--navy);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--yellow);
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-icon {
+           /** background-color: var(--yellow); **/
+            padding: 0.5rem;
+            border-radius: 6px;
+        }
+
+        .footer-logo-icon i {
+            font-size: 1.5rem;
+            color: var(--black);
+        }
+
+        .footer-info {
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-info i {
+            color: var(--yellow);
+            margin-top: 0.25rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background-color: #28a745;
+            color: white;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .about-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .course-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .course-list {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .course-cards,
+            .about-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .course-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <img src="logo.png" alt="CSP Training Academy Logo" width="70" height="70">
+                    </div>
+                    <div class="logo-text">
+                        <h1>CSP Training Academy</h1>
+                        <p>Est. 2016</p>
+                    </div>
+                </div>
+                
+                <nav>
+                    <ul>
+                        <li><a onclick="scrollToSection('home')">Home</a></li>
+                        <li><a onclick="scrollToSection('about')">About</a></li>
+                        <li><a onclick="scrollToSection('courses')">Courses</a></li>
+                        <li><a onclick="scrollToSection('contact')">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="mobile-nav" id="mobileNav">
+                <ul>
+                    <li><a onclick="scrollToSection('home')">Home</a></li>
+                    <li><a onclick="scrollToSection('about')">About</a></li>
+                    <li><a onclick="scrollToSection('courses')">Courses</a></li>
+                    <li><a onclick="scrollToSection('contact')">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Start your career on the right track</h2>
+                    <p>Register now for 2026 and unlock your potential with accredited training programs designed for rural and semi-urban communities.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('courses')">View Courses</button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('contact')">Register Now</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.theconversation.com/files/120040/original/image-20160425-22383-jttauj.jpg?ixlib=rb-4.1.0&q=50&auto=format&w=768&h=512&fit=crop&dpr=2" alt="Graduation student celebrating success">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About CSP Training Academy</h2>
+                <div class="section-divider"></div>
+                <p>CSP Academy aims to close the skills gap in rural and semi-urban communities, providing quality education and training for both working and non-working individuals. We're committed to empowering our students with the knowledge and skills they need to succeed in today's competitive job market.</p>
+            </div>
+
+            <div class="about-cards">
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Established</h3>
+                    <p>Since 2016</p>
+                </div>
+
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Accredited</h3>
+                    <p>Accreditation #: [ACC-2016-XXXX]</p>
+                </div>
+
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Our Team</h3>
+                    <p>6-10 Dedicated Professionals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Courses</h2>
+                <div class="section-divider"></div>
+                <p>We offer a comprehensive range of short-term and long-term courses designed to equip you with practical skills for the modern workplace.</p>
+            </div>
+
+            <div class="course-cards">
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1758518727600-2c5f48419eac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGNvbW11bmljYXRpb24lMjBtZWV0aW5nfGVufDF8fHx8MTc2MjI5NTU3N3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="Business Communication" class="course-card-image">
+                    <div class="course-card-content">
+                        <h3>Business Communication</h3>
+                        <p>Learn effective communication strategies for sharing information within and outside your organization for commercial benefit. Master professional writing, presentation skills, and interpersonal communication.</p>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1758876202522-df2c0dbd0d52?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9qZWN0JTIwbWFuYWdlbWVudCUyMHBsYW5uaW5nfGVufDF8fHx8MTc2MjMyNjQ1Mnww&ixlib=rb-4.1.0&q=80&w=1080" alt="Project Administration" class="course-card-image">
+                    <div class="course-card-content">
+                        <h3>Project Administration</h3>
+                        <p>Develop skills in organizing team members, facilitating project workflows, reporting, and analyzing projects under the supervision of a project manager. Perfect for aspiring project coordinators.</p>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1731419223715-aec6664f9011?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21wdXRlciUyMHRyYWluaW5nJTIwc3R1ZGVudHxlbnwxfHx8fDE3NjIzNDYxMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Computer Training" class="course-card-image">
+                    <div class="course-card-content">
+                        <h3>Computer Training</h3>
+                        <p>Comprehensive training in software, hardware, networking, programming, and database management. From basic computer literacy to advanced technical skills, we cover it all.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="additional-courses">
+                <h3>Additional Programs Available</h3>
+                <div class="course-list">
+                    <div class="course-list-item">
+                        <i class="fas fa-circle"></i>
+                        <span>Matric Rewrite</span>
+                    </div>
+                    <div class="course-list-item">
+                        <i class="fas fa-circle"></i>
+                        <span>Business & Finance Studies</span>
+                    </div>
+                    <div class="course-list-item">
+                        <i class="fas fa-circle"></i>
+                        <span>Administration</span>
+                    </div>
+                    <div class="course-list-item">
+                        <i class="fas fa-circle"></i>
+                        <span>End-User Computing</span>
+                    </div>
+                    <div class="course-list-item">
+                        <i class="fas fa-circle"></i>
+                        <span>Computer Literacy</span>
+                    </div>
+                    <div class="course-list-item">
+                        <i class="fas fa-circle"></i>
+                        <span>Computerized Bookkeeping</span>
+                    </div>
+                    <div class="course-list-item">
+                        <i class="fas fa-circle"></i>
+                        <span>Computer Technician</span>
+                    </div>
+                    <div class="course-list-item">
+                        <i class="fas fa-circle"></i>
+                        <span>Business Support Practice</span>
+                    </div>
+                    <div class="course-list-item">
+                        <i class="fas fa-circle"></i>
+                        <span>Small Business Financial Management</span>
+                    </div>
+                    <div class="course-list-item">
+                        <i class="fas fa-circle"></i>
+                        <span>Small Business Entrepreneurship</span>
+                    </div>
+                    <div class="course-list-item">
+                        <i class="fas fa-circle"></i>
+                        <span>Accounting Technician</span>
+                    </div>
+                    <div class="course-list-item">
+                        <i class="fas fa-circle"></i>
+                        <span>Project Financial Management</span>
+                    </div>
+                    <div class="course-list-item">
+                        <i class="fas fa-circle"></i>
+                        <span>Public Sector Accounting</span>
+                    </div>
+                    <div class="course-list-item">
+                        <i class="fas fa-circle"></i>
+                        <span>Electronics</span>
+                    </div>
+                    <div class="course-list-item">
+                        <i class="fas fa-circle"></i>
+                        <span>Bookkeeping</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="courses-cta">
+                <button class="btn btn-primary" onclick="scrollToSection('contact')">View All Courses & Register</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <div class="section-divider"></div>
+                <p>Get in touch with us to learn more about our courses or to register for upcoming programs.</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Telephone</h3>
+                            <p>045-XXXXXXX</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Mobile</h3>
+                            <p>0XX-XXXXXXX</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>Working Hours</h3>
+                            <p>Monday - Friday: 8:00 AM - 5:00 PM<br>
+                            Saturday & Sunday: Closed</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Address</h3>
+                            <p>[Street Address]<br>
+                            [City, Province]<br>
+                            [Postal Code]<br>
+                            South Africa</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3387.336426687524!2d26.87113577583875!3d-31.897455374043716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e623f039d713809%3A0x5fdcb8613ecb3149!2sBert%20Strauss%20Centre!5e0!3m2!1sen!2sza!4v1762346942562!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3><i class="fas fa-envelope"></i> Send Us a Message</h3>
+                    <div class="success-message" id="successMessage">
+                        Thank you for your message! We will get back to you soon.
+                    </div>
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required placeholder="Tell us about your interest in our courses..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <img src="logo.png" alt="CSP Training Academy Logo" width="70" height="70">
+                        </div>
+                        <h3>CSP Training Academy</h3>
+                    </div>
+                    <p>Empowering communities through quality education and skills development since 2016.</p>
+                    <p style="font-size: 0.9rem; margin-top: 1rem;">
+                        Accredited Institution<br>
+                        Accreditation #: [ACC-2016-XXXX]
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <div class="footer-info">
+                        <i class="fas fa-phone"></i>
+                        <span>045-XXXXXXX</span>
+                    </div>
+                    <div class="footer-info">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>0XX-XXXXXXX</span>
+                    </div>
+                    <div class="footer-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>[Street Address]<br>[City, Province]<br>[Postal Code], South Africa</span>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Working Hours</h3>
+                    <div class="footer-info">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <p>Monday - Friday<br>
+                            <span style="color: #aaa;">8:00 AM - 5:00 PM</span></p>
+                        </div>
+                    </div>
+                    <div class="footer-info">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <p>Saturday & Sunday<br>
+                            <span style="color: #aaa;">Closed</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> CSP Training Academy. All rights reserved.</p>
+                <p>Dedicated to closing the skills gap in rural and semi-urban communities.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+
+        // Smooth scroll to section
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                // Close mobile menu if open
+                const mobileNav = document.getElementById('mobileNav');
+                mobileNav.classList.remove('active');
+            }
+        }
+
+        // Handle form submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(function() {
+                successMessage.classList.remove('show');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
